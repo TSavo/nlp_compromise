@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 
 
@@ -83,7 +83,7 @@ test('fancy match', function(t) {
   ].forEach(function (a) {
     var r = nlp(a[0]).match(a[1]).terms || [];
     var msg = '\'' + a[0] + '\' - - - \'' + a[1] + '\' - - got:' + r.length + '  want:' + a[2];
-    t.equal(r.length, a[2], msg);
+    t.is(r.length, a[2], msg);
   });
-  t.end();
+  t.pass();
 });

@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var str_test = require('./lib/fns').str_test;
 
@@ -11,5 +11,5 @@ test('conditions:', function (t) {
     var str = nlp(a[0]).remove('#ConditionPhrase+').normal();
     str_test(str, a[0], a[1], t);
   });
-  t.end();
+  t.pass();
 });

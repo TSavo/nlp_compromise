@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var str_test = require('./lib/fns').str_test;
 
@@ -17,5 +17,5 @@ test('question-test :', function(t) {
     var str = nlp(a[0]).parse()[0].type;
     str_test(str, a[0], a[1], t);
   });
-  t.end();
+  t.pass();
 });

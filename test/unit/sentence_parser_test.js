@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var str_test = require('./lib/fns').str_test;
 
@@ -32,7 +32,7 @@ test('sentence tokenize:', function(t) {
   ].forEach(function (a) {
     var num = nlp(a[0]).list.length;
     var msg = '"' + a[0] + '" ->  ' + num;
-    t.equal(num, a[1], msg);
+    t.is(num, a[1], msg);
   });
-  t.end();
+  t.pass();
 });

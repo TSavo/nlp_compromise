@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var pos_test = require('./lib/fns').pos_test;
 
@@ -293,7 +293,7 @@ test('date-tag :', function(t) {
   ].forEach(function(first) {
     var str = nlp(first).match('#Date+').plaintext();
     var msg = first + '  -> ' + str;
-    t.equal(first, str, msg);
+    t.is(first, str, msg);
   });
-  t.end();
+  t.pass();
 });

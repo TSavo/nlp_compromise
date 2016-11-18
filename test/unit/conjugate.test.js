@@ -1,8 +1,7 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 
-var arr = [
-  {
+var arr = [{
     'Infinitive': 'convolute',
     'PresentTense': 'convolutes',
     'Gerund': 'convoluting',
@@ -154,8 +153,7 @@ var arr = [
     'PresentTense': 'studies',
     'PastTense': 'studied',
     'Gerund': 'studying'
-  },
-  {
+  }, {
     'Infinitive': 'criticise',
     'PresentTense': 'criticises',
     'PastTense': 'criticised',
@@ -172,16 +170,16 @@ var arr = [
     'Gerund': 'fuzzing',
   }
 ];
-test('conjugation:', function(t) {
+test('conjugation:', (t) => {
 
-  var test_conjugation = function(inf, o, form, original) {
+  var test_conjugation = function (inf, o, form, original) {
     var msg = 'from ' + original + ' to ' + form + ':  [' + o[original] + '] -> [' + inf[form] + ']';
-    t.equal(inf[form], o[form], msg);
+    t.is(inf[form], o[form], msg);
   };
 
-  arr.forEach(function(o) {
+  arr.forEach(function (o) {
     var forms = ['Infinitive', 'PastTense', 'PresentTense', 'Gerund'];
-    for(var i = 0; i < forms.length; i++) {
+    for (var i = 0; i < forms.length; i++) {
       var from = forms[i];
       var inf = nlp(o[from]).tag('Verb').verbs().parse()[0];
       test_conjugation(inf, o, 'Infinitive', from);
@@ -190,5 +188,5 @@ test('conjugation:', function(t) {
       test_conjugation(inf, o, 'Gerund', from);
     }
   });
-  t.end();
+  // t.end();
 });

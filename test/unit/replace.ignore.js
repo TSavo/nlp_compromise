@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var str_test = require('./lib/fns').str_test;
 
@@ -14,5 +14,5 @@ test('match-replace :', function(t) {
     var str = nlp(a[0]).replace(a[1], a[2]).plaintext();
     str_test(str, a[0], a[3], t);
   });
-  t.end();
+  t.pass();
 });

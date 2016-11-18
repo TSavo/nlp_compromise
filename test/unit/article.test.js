@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var str_test = require('./lib/fns').str_test;
 
@@ -16,7 +16,7 @@ test('.article():', function(t) {
   ].forEach(function (a) {
     var o = nlp(a[0]).tag('Noun').nouns().parse()[0];
     var msg = a[0] + ' -> ' + o.article;
-    t.equal(o.article, a[1], msg);
+    t.is(o.article, a[1], msg);
   });
-  t.end();
+  t.pass();
 });

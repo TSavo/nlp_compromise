@@ -1,45 +1,43 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 
 const firstTerm = (str) => {
   return nlp(str).list[0].terms[0];
 };
 
-test('==Term_fns==', function(T) {
-  T.test('noun:', function(t) {
+test('noun:', function (t) {
 
-    var term = firstTerm('flower');
-    t.equal(term.noun.plural(), 'flowers');
-    term = firstTerm('flowers');
-    t.equal(term.noun.singular(), 'flower');
+  var term = firstTerm('flower');
+  t.is(term.noun.plural(), 'flowers');
+  term = firstTerm('flowers');
+  t.is(term.noun.singular(), 'flower');
 
-    t.end();
-  });
+  t.pass();
+});
 
-  T.test('pronoun:', function(t) {
+test('pronoun:', function (t) {
 
-    var term = firstTerm('he');
-    t.equal(term.pronoun.toPlural(), 'they');
+  var term = firstTerm('he');
+  t.is(term.pronoun.toPlural(), 'they');
 
-    term = firstTerm('those');
-    t.equal(term.pronoun.toSingular(), 'this');
+  term = firstTerm('those');
+  t.is(term.pronoun.toSingular(), 'this');
 
-    t.end();
-  });
+  t.pass();
+});
 
-  T.test('verb:', function(t) {
+test('verb:', function (t) {
 
-    var term = firstTerm('is');
-    t.equal(term.verb.toPlural(), 'are');
+  var term = firstTerm('is');
+  t.is(term.verb.toPlural(), 'are');
 
-    term = firstTerm('walks');
-    t.equal(term.verb.toPlural(), 'walk');
+  term = firstTerm('walks');
+  t.is(term.verb.toPlural(), 'walk');
 
-    term = firstTerm('walked');
-    t.equal(term.verb.conjugation(), 'PastTense');
+  term = firstTerm('walked');
+  t.is(term.verb.conjugation(), 'PastTense');
 
-    var conj = term.verb.conjugate();
-    t.equal(conj.Gerund, 'walking');
-    t.end();
-  });
+  var conj = term.verb.conjugate();
+  t.is(conj.Gerund, 'walking');
+  t.pass();
 });

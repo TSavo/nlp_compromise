@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('ava');
 var nlp = require('./lib/nlp');
 var arr_test = require('./lib/fns').arr_test;
 
@@ -24,7 +24,7 @@ test('splitAfter', function (t) {
     var got = nlp(a[0]).splitAfter(a[1]).asArray().map((o) => o.normal);
     arr_test(got, a[0], want, t);
   });
-  t.end();
+  t.pass();
 });
 
 test('splitBefore', function (t) {
@@ -45,7 +45,7 @@ test('splitBefore', function (t) {
     var got = nlp(a[0]).splitBefore(a[1]).asArray().map((o) => o.normal);
     arr_test(got, a[0], want, t);
   });
-  t.end();
+  t.pass();
 });
 
 test('splitOn', function (t) {
@@ -66,5 +66,5 @@ test('splitOn', function (t) {
     var got = nlp(a[0]).splitOn(a[1]).asArray().map((o) => o.normal);
     arr_test(got, a[0], want, t);
   });
-  t.end();
+  t.pass();
 });

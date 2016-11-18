@@ -4,7 +4,7 @@ const splitMethods = (Result) => {
 
   const methods = {
     /** turn result into two seperate results */
-    splitAfter: function(reg, verbose) {
+    splitAfter: function (reg, verbose) {
       let list = [];
       this.list.forEach((ts) => {
         ts.splitAfter(reg, verbose).forEach((mts) => {
@@ -15,7 +15,7 @@ const splitMethods = (Result) => {
       return this;
     },
     /** turn result into two seperate results */
-    splitBefore: function(reg, verbose) {
+    splitBefore: function (reg, verbose) {
       let list = [];
       this.list.forEach((ts) => {
         ts.splitBefore(reg, verbose).forEach((mts) => {
@@ -26,7 +26,7 @@ const splitMethods = (Result) => {
       return this;
     },
     /** turn result into two seperate results */
-    splitOn: function(reg, verbose) {
+    splitOn: function (reg, verbose) {
       let list = [];
       this.list.forEach((ts) => {
         ts.splitOn(reg, verbose).forEach((mts) => {
