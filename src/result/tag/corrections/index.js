@@ -86,6 +86,9 @@ const corrections = function (r) {
   //all values are either ordinal or cardinal
   r.match('#Value').match('!#Ordinal').tag('#Cardinal', 'not-ordinal');
 
+  //money
+  r.match('#Value+ #Currency').tag('#Money', 'value-currency');
+  r.match('#Money and #Money #Currency?').tag('#Money', 'money-and-money');
 
   //last names
   let reason = 'person-correction';

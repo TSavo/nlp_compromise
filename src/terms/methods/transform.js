@@ -16,6 +16,25 @@ const transforms = (Terms) => {
       });
       return new Terms(terms, this.lexicon, this.parent);
     },
+    hyphenate: function () {
+      this.terms.forEach((t, i) => {
+        if (i !== this.terms.length - 1) {
+          t.whitespace.after = '-';
+        }
+        if (i !== 0) {
+          t.whitespace.before = '';
+        }
+      });
+      return this;
+    },
+    deHyphenate: function () {
+      this.terms.forEach((t, i) => {
+        if (t.whitespace.after === '-') {
+          t.whitespace.after = ' ';
+        }
+      });
+      return this;
+    },
 
   };
 

@@ -7,6 +7,15 @@ const parseDecimals = require('./parseDecimals');
 const log = require('../paths').log;
 const path = 'parseNumber';
 
+//some numbers we know
+const casualForms = {
+  // 'a few': 3,
+  'a couple': 2,
+  'a dozen': 12,
+  'two dozen': 24,
+  'zero': 0,
+};
+
 // a 'section' is something like 'fifty-nine thousand'
 // turn a section into something we can add to - like 59000
 const section_sum = (obj) => {
@@ -17,17 +26,31 @@ const section_sum = (obj) => {
   }, 0);
 };
 
+const alreadyNumber = (ts) => {
+  for(let i = 0; i < ts.terms.length; i++) {
+    if (!ts.terms[i].tag.NumericValue) {
+      return false;
+    }
+  }
+  return true;
+};
+
 //turn a string into a number
-const parse = function(t) {
+const parse = function(ts) {
   log.here('parseNumber', path);
-  let str = t.normal;
+  let str = ts.normal();
+
+  //convert some known-numbers
+  if (casualForms[str] !== undefined) {
+    return casualForms[str];
+  }
   //'a/an' is 1
   if (str === 'a' || str === 'an') {
     return 1;
   }
   //handle a string of mostly numbers
-  if (t.tag.NumericValue) {
-    return parseNumeric(str);
+  if (alreadyNumber(ts)) {
+    return parseNumeric(ts.normal());
   }
   let modifier = findModifiers(str);
   str = modifier.str;
@@ -121,6 +144,10 @@ const parse = function(t) {
   //post-process add modifier
   sum *= modifier.amount;
   sum *= isNegative ? -1 : 1;
+  //dont return 0, if it went straight-through
+  if (sum === 0) {
+    return null;
+  }
   return sum;
 };
 

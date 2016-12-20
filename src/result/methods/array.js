@@ -10,6 +10,7 @@ const genericMethods = (Text) => {
       let list = this.list.map((ts) => {
         return ts.clone();
       });
+      // return this;
       return new Text(list, this.lexicon, this.parent);
     },
 
@@ -19,9 +20,8 @@ const genericMethods = (Text) => {
       //   all = all.concat(ts.terms);
       //   return all;
       // }, []);
-      // // let terms = new Terms(list);
-      // // return new Text([terms], this.parent);
-      // return list;
+      // let terms = new Terms(list);
+      // return new Text([terms], this.lexicon, this.parent);
       return this.match('.');
     },
 

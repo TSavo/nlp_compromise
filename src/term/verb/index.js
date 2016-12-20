@@ -40,14 +40,14 @@ module.exports = {
   },
 
   /**conjugation*/
-  infinitive: function () {
-    return toInfinitive(this);
+  infinitive: function (verbose) {
+    return toInfinitive(this, verbose);
   },
-  conjugation: function () {
-    return predict(this);
+  conjugation: function (verbose) {
+    return predict(this, verbose);
   },
-  conjugate: function () {
-    return conjugate(this);
+  conjugate: function (verbose) {
+    return conjugate(this, verbose);
   },
   pastTense: function () {
     return conjugate(this).PastTense;

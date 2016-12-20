@@ -19,8 +19,11 @@ const conflicts = [
   //adjectives
   ['Comparative', 'Superlative'],
   //values
+  ['Value', 'Verb', 'Adjective'],
+  ['Value', 'Year'],
   ['Ordinal', 'Cardinal'],
   ['TextValue', 'NumericValue'],
+  ['NiceNumber', 'TextValue'],
   ['Ordinal', 'Currency'], //$5.50th
   //verbs
   ['PastTense', 'PerfectTense', 'Pluperfect', 'FuturePerfect', 'Copula', 'Modal', 'Participle', 'Infinitive', 'Gerund'],
@@ -28,8 +31,6 @@ const conflicts = [
   ['Month', 'WeekDay', 'Year', 'Duration'],
   ['Particle', 'Conjunction', 'Adverb', 'Preposition'],
   ['Date', 'Verb', 'Adjective', 'Person'],
-  //date/time
-  // ['Time', 'Noun'],
   //phrases
   ['NounPhrase', 'VerbPhrase', 'AdjectivePhrase', 'ConditionalPhrase'],
   //a/an -> 1
