@@ -3,29 +3,35 @@
 const participles = require('./participles');
 
 const irregular = {
-  take: {
-    PerfectTense: 'have taken',
-    pluPerfectTense: 'had taken',
-    FuturePerfect: 'will have taken'
-  },
-  can: {
-    Gerund: '',
-    PresentTense: 'can',
-    PastTense: 'could',
-    FutureTense: 'can',
-    PerfectTense: 'could',
-    pluPerfectTense: 'could',
-    FuturePerfect: 'can',
-    Actor: ''
-  },
-  free: {
-    Gerund: 'freeing',
-    Actor: ''
-  },
-  arise: {
-    PastTense: 'arose',
-    Participle: 'arisen'
-  },
+    take: {
+        PerfectTense: 'have taken',
+        pluPerfectTense: 'had taken',
+        FuturePerfect: 'will have taken'
+    },
+    can: {
+        Gerund: '',
+        PresentTense: 'can',
+        PastTense: 'could',
+        FutureTense: 'can',
+        PerfectTense: 'could',
+        pluPerfectTense: 'could',
+        FuturePerfect: 'can',
+        Actor: ''
+    },
+    free: {
+        Gerund: 'freeing',
+        Actor: ''
+    },
+    arise: {
+        PastTense: 'arose',
+        Participle: 'arisen'
+    },
+    awake:{
+      Gerund:'awaking',
+      PastTense:'awoke',
+      PresentTense:'awakens',
+      Participle:'awaken'
+    },
   babysit: {
     PastTense: 'babysat',
     Actor: 'babysitter'
@@ -50,6 +56,24 @@ const irregular = {
     // FuturePerfect: 'will have been',
     Actor: '',
     Gerund: 'being'
+  },
+  bear: {
+    Gerund:'bearing',
+    PastTense:'bore',
+    FutureTense:'bear',
+    pluPerfectTense:'had born',
+    FuturePerfect:'will have born',
+    PerfectTense:'have born',
+    Actor:'bearer'
+  },
+  bore:{
+      Gerund:'boring',
+      PastTense:'bored',
+      FutureTense:'bore',
+      pluPerfectTense:'had bored',
+      FuturePerfect:'will have bored',
+      PerfectTense:'have bored',
+      Actor:'borer'
   },
   beat: {
     Gerund: 'beating',

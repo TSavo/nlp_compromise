@@ -175,6 +175,16 @@ var arr = [
     'PresentTense': 'invests',
     'PastTense': 'invested',
     'Gerund': 'investing'
+  }, {
+    'Infinitive': 'arise',
+    'PresentTense': 'arises',
+    'PastTense': 'arose',
+    'Gerund': 'arising'
+  }, {
+    'Infinitive': 'awake',
+    'PresentTense': 'awakens',
+    'PastTense': 'awoke',
+    'Gerund': 'awaking'
   }
 ];
 test('conjugation:', function(t) {
