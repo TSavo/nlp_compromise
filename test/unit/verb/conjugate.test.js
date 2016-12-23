@@ -186,6 +186,7 @@ var arr = [
     'PastTense': 'awoke',
     'Gerund': 'awaking'
   }
+
 ];
 test('conjugation:', function(t) {
 
